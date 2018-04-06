@@ -32,4 +32,53 @@ function main() {
   cassette.play()
 }
 
+function insertionSort(arr) {
+
+  let temporaryNum = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      //if lest side number is greater than RSN
+      if (arr[i] > arr[j]) {
+        // console.log(arr)
+        //set temporary variable equal to LSN
+        temporaryNum = arr[i];
+        //make LSN equal to RSN
+        arr[i] = arr[j];
+        arr[j] = temporaryNum;
+        //make RSN equal to LSN
+      }
+    }
+  }
+
+  return arr
+}
+
+
+
+
+
+const findMinimum = (arr) => {
+  let min = arr[0]
+  for (let element of arr) {
+    if (element < min) {
+      min = element
+    }
+  }
+  return min;
+}
+
+function selectionSort(arr) {
+  let sortedArray = [];
+  let counterMax = arr.length
+  let counter = 0
+  while (counter < counterMax) {
+    currentMinimum = findMinimum(arr)
+    sortedArray.push(currentMinimum)
+    minimumIndex = arr.indexOf(currentMinimum)
+    arr.splice(minimumIndex, 1)
+    counter++
+  }
+  return sortedArray
+}
+
 main()
